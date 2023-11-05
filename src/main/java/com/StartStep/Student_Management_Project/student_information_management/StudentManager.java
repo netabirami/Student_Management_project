@@ -80,6 +80,7 @@ public class StudentManager {
     }
 
     public void sortStudentById (){
-        studentList.sort(Comparator.comparing(Student::getId));
+        studentList.sort(Comparator.comparing(Student::getId
+        ));
     }
 }
