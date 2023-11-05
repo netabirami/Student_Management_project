@@ -42,10 +42,7 @@ public class StudentManager {
         }
     }
 
-    public void addGrading(int studentId, int courseId, float grade) {
-        //find the student using studentId - done
-        //find the course for the student using courseID
-        //set the grade for the course
+    public void addGrade(int studentId, int courseId, float grade) {
         for (int i = 0; i < studentList.size(); i++) {
             if (studentId == studentList.get(i).getId()) {
                 List<Course> courses = studentList.get(i).getCourses();
@@ -59,9 +56,6 @@ public class StudentManager {
     }
 
     public Course getCourse(int studentId, int courseId){
-        //find student using studentID
-        //find course for the student using courseID
-        //return the course
         for (int i = 0; i < studentList.size(); i++) {
             if (studentId == studentList.get(i).getId()) {
                 List<Course> courses = studentList.get(i).getCourses();

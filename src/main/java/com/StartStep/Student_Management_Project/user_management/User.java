@@ -1,17 +1,25 @@
 package com.StartStep.Student_Management_Project.user_management;
 
 public class User {
-    private int id;
     private String name;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    private String password;
+
+    public User(String name, String password, UserRole role) {
+        this.name = name;
+        this.password = password;
+        this.role = role;
+    }
+
     private UserRole role;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -29,9 +37,5 @@ public class User {
         this.role = role;
     }
 
-    public User(int id, String name, UserRole role) {
-        this.id = id;
-        this.name = name;
-        this.role = role;
-    }
+
 }

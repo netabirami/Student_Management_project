@@ -22,11 +22,12 @@ public class StudentManagementProjectApplication {
                 System.out.println("Do you want to register or login ? please press 1 for register 2 for login");
                 int input2 = scanner.nextInt();
                 if (input2 == 1) {
-                    System.out.println("Please enter your user name and password to register");
+                    System.out.println("Please enter your user name, role and password to register");
                     Scanner scanner1 = new Scanner(System.in);
                     String userName = scanner1.nextLine();
+                    String role = scanner1.nextLine();
                     String userPassword = scanner1.nextLine();
-                    userManager.register(userName, userPassword);
+                    userManager.register(userName,role, userPassword);
                 } else if (input2 == 2) {
                     System.out.println("please enter your user name and password to login");
                     Scanner scanner2 = new Scanner(System.in);
@@ -35,7 +36,15 @@ public class StudentManagementProjectApplication {
                     userManager.login(userName, userPassword);
                 }
             } else if (input == 2) {
-                System.out.println("please enter the following action:\n 1 for Add Student\n, 2 for Get Student\n, 3 for remove Student\n, 4 for update Student\n,5 for Add Grade\n,6 for get Course ");
+                System.out.println("""
+                        please enter the following action:
+                         1 for Add Student
+                        , 2 for Get Student
+                        , 3 for remove Student
+                        , 4 for update Student
+                        ,5 for Add Grade
+                        ,6 for get Course
+                        \s""");
                 Scanner scanner3 = new Scanner(System.in);
                 int input3 = scanner3.nextInt();
                 switch (input3) {
@@ -85,6 +94,25 @@ public class StudentManagementProjectApplication {
                                 List.of(new Course(courseId1, courseName1, null, 0))
                         );
                         break;
+                    case 5:
+                        Scanner scanner8 = new Scanner(System.in);
+                        System.out.println("Please enter student ID");
+                        int studentId3 = scanner8.nextInt();
+                        System.out.println("Please enter course ID");
+                        int courseId3 = scanner8.nextInt();
+                        System.out.println("Please enter grade");
+                        float grade = scanner8.nextFloat();
+                        studentManager.addGrade(studentId3,courseId3,grade);
+                        break;
+                    case 6:
+                        Scanner scanner9 = new Scanner(System.in);
+                        System.out.println("please enter student Id");
+                        int studentId4 = scanner9.nextInt();
+                        System.out.println("please enter course Id");
+                        int courseId4 = scanner9.nextInt();
+                        studentManager.getCourse(studentId4,courseId4);
+                        break;
+
                 }
 
             }
