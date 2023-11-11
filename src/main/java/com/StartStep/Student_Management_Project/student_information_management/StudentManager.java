@@ -11,7 +11,7 @@ public class StudentManager {
 
     private List<Student> studentList = new ArrayList<Student>();
 
-    public void addStudent(Student student) {
+    public synchronized  void addStudent(Student student) {
         studentList.add(student);
 
     }
@@ -25,7 +25,7 @@ public class StudentManager {
         return null;
     }
 
-    public void removeStudent(int studentId) {
+    public synchronized void removeStudent(int studentId) {
         for (int i = 0; i < studentList.size(); i++) {
             if (studentId == studentList.get(i).getId()) {
                 studentList.remove(i);
@@ -42,7 +42,7 @@ public class StudentManager {
         }
     }
 
-    public void addGrade(int studentId, int courseId, float grade) {
+    public synchronized void addGrade(int studentId, int courseId, float grade) {
         for (int i = 0; i < studentList.size(); i++) {
             if (studentId == studentList.get(i).getId()) {
                 List<Course> courses = studentList.get(i).getCourses();
@@ -55,7 +55,7 @@ public class StudentManager {
         }
     }
 
-    public Course getCourse(int studentId, int courseId){
+    public synchronized Course getCourse(int studentId, int courseId){
         for (int i = 0; i < studentList.size(); i++) {
             if (studentId == studentList.get(i).getId()) {
                 List<Course> courses = studentList.get(i).getCourses();
